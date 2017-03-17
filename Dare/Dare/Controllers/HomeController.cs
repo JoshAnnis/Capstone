@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Dare.Controllers
 {
+    [RequireHttps]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -29,8 +30,7 @@ namespace Dare.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            
             return View();
         }
 

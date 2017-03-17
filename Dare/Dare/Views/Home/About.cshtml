@@ -1,7 +1,17 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Dare";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>Here at Dare, we wanted to change the way people partake in social media challenges.
+We wanted to make an app that would let you show your friends and family all the cool and crazy things you do, we also wanted you to have the ability to challenge your friends and family.
+Dare yours to life by Danny Edwards who wanted to challenge your friends and family anytime, anywhere. But Danny didn't know how to take his idea from thought to concept. So he brought it to a group of people to help make his dream a reality.
+And that is how the Dare Team came to be and on that team, we have the software developer Josh Annis (me the guy who made this website your looking at, Hannah Scherer the graphic designer who will but hasn't yet  (helped make it look pretty), and we have Connor, Joe, Adam, And Ray who help us pitch our idea to try and get people interested in our product.
+</p>
+
+using (Html.BeginForm("FileUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label for="file">Upload Image:</label>
+    <input type="file" name="file" id="file" style="width: 100%;" />
+    <input type="submit" value

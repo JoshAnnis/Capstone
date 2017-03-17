@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44351</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -205,6 +205,10 @@
     <Compile Include="Migrations\201703161846188_got google API.Designer.cs">
       <DependentUpon>201703161846188_got google API.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703171901104_added facebook login.cs" />
+    <Compile Include="Migrations\201703171901104_added facebook login.Designer.cs">
+      <DependentUpon>201703171901104_added facebook login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -274,10 +278,13 @@
     <Content Include="Views\Home\Dares.cshtml" />
     <Content Include="Views\Home\DareMap.cshtml" />
     <Content Include="Views\Home\UserIndex.cshtml" />
+    <Content Include="Views\IndexView.cshtml" />
+    <Content Include="Views\Home\Image.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\ImageIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UserLocation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -290,6 +297,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703161846188_got google API.resx">
       <DependentUpon>201703161846188_got google API.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171901104_added facebook login.resx">
+      <DependentUpon>201703171901104_added facebook login.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -310,7 +320,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>8066</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:8066/</IISUrl>
+          <IISUrl>https://localhost:44351/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
