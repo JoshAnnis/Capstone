@@ -5,6 +5,7 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -25,10 +26,17 @@
     function showPosition(position) {
         var latlondata =  position.coords.latitude + "," +position.coords.longitude;
         var latlon = "Your Latitude Position is:=" + position.coords.latitude + "," + "Your Longitude Position is:="  +position.coords.longitude;
-        alert(latlon)
+        //alert(latlon)
         var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-  + latlondata + "&zoom=14&size=400x300&sensor=false";
-        document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
+  + latlondata + "&zoom=16&size=400x300&sensor=false";
+document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
+    var marker = new google.maps.Marker({
+        position: latlondata,
+        draggable: false,
+        title: "DareMap",
+        animation: google.maps.Animation.DROP
+    });
+    marker.setMap(img_url);
     }
     function showError(error) {
         if (error.code == 1) {
@@ -51,7 +59,9 @@
     </form>
 </body>
 </html>
-<head>
+
+    
+@*<head>
     <style>
         #map {
             height: 400px;
@@ -60,7 +70,6 @@
     </style>
 </head>
 <body>
-    <h3>Our Base of opp</h3>
     <div id="map"></div>
     <script>
       function initMap() {
@@ -79,5 +88,5 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyti0b2a2Pz_sc9TKJPr09nEoBOne6Lbo&callback=initMap">
     </script>
 
-    @*My google maps api key AIzaSyAyti0b2a2Pz_sc9TKJPr09nEoBOne6Lbo*@
-</body>
+    @*My google maps api key AIzaSyAyti0b2a2Pz_sc9TKJPr09nEoBOne6Lbo
+</body>*@

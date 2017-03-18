@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TermsAndConditionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -278,10 +279,9 @@
     <Content Include="Views\Home\Dares.cshtml" />
     <Content Include="Views\Home\DareMap.cshtml" />
     <Content Include="Views\Home\UserIndex.cshtml" />
-    <Content Include="Views\IndexView.cshtml" />
     <Content Include="Views\Home\Image.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
-    <Content Include="Views\ImageIndex.cshtml" />
+    <Content Include="Views\TermsAndConditions\TermsAndConditions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

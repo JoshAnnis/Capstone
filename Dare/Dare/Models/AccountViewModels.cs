@@ -81,6 +81,7 @@ namespace Dare.Models
         public string ConfirmPassword { get; set; }
         [Required]
         public string UserName { get; set; }
+
     }
 
     public class ResetPasswordViewModel
