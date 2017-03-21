@@ -26,7 +26,7 @@
     function showPosition(position) {
         var latlondata =  position.coords.latitude + "," +position.coords.longitude;
         var latlon = "Your Latitude Position is:=" + position.coords.latitude + "," + "Your Longitude Position is:="  +position.coords.longitude;
-        //alert(latlon)
+        alert(latlon)
         var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
   + latlondata + "&zoom=16&size=400x300&sensor=false";
 document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";

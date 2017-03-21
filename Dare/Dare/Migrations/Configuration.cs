@@ -34,19 +34,20 @@ namespace Dare.Migrations
             //    new IdentityRole { Name = "User" }
             //    );
 
-            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            string[] roleNames = { "Admin", "User" };
-            IdentityResult roleResult;
-            foreach (var roleName in roleNames)
-            {
-                if (!RoleManager.RoleExists(roleName))
-                {
-                    roleResult = RoleManager.Create(new IdentityRole(roleName));
-                }
+            //var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //string[] roleNames = { "Admin", "User" };
+            //IdentityResult roleResult;
+            //foreach (var roleName in roleNames)
+            //{
+            //    if (!RoleManager.RoleExists(roleName))
+            //    {
+            //        roleResult = RoleManager.Create(new IdentityRole(roleName));
+            //    }
 
-            }
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            UserManager.AddToRole("d92b4020-1358-40e9-9ef0-83430e9f3e9f", "Admin");
+            //}
+            //var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //UserManager.AddToRole("bf24df57-cf59-4122-9461-4f69fadfc277", "Admin");
+
 
 
         }

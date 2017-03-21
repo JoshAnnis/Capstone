@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -52,9 +53,40 @@ namespace Dare.Controllers
             return View();
         }
 
-       
 
+ 
+    
+        
+            // GET: TermsAndConditions
+            [HttpPost]
+            public ActionResult TermsAndConditions(int id = 0)
+            {
+                @ViewBag.Message = "Thanks for accepting term and condition.";
+                return View();
+            }
+        
+    
 
-
+        [HttpPost]
+        public ActionResult Dares(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Images"),
+                    Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return View();
+        }
     }
 }
