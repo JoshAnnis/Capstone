@@ -77,6 +77,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NReco.VideoConverter, Version=1.1.2.0, Culture=neutral, PublicKeyToken=395ccb334978a0cd, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.VideoConverter.1.1.2\lib\net20\NReco.VideoConverter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
       <Private>True</Private>
@@ -88,6 +92,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -217,18 +223,32 @@
     <Compile Include="Migrations\201703171901104_added facebook login.Designer.cs">
       <DependentUpon>201703171901104_added facebook login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703211823229_Added Facebookbook button.cs" />
+    <Compile Include="Migrations\201703211823229_Added Facebookbook button.Designer.cs">
+      <DependentUpon>201703211823229_Added Facebookbook button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703231355315_Added file uploader.cs" />
+    <Compile Include="Migrations\201703231355315_Added file uploader.Designer.cs">
+      <DependentUpon>201703231355315_Added file uploader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MangaeViewModel.cs" />
+    <Compile Include="Models\Videos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Home\Video.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bloon.jpg" />
     <Content Include="Content\bootstrap-Simplex.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\CheerioChallenge.jpg" />
+    <Content Include="Content\RomanForum.png" />
+    <Content Include="Content\washer planking.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -237,6 +257,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -250,7 +271,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Content\Adam.jpg" />
+    <Content Include="Content\Connor.jpg" />
+    <Content Include="Content\Dan.jpg" />
+    <Content Include="Content\Hannah.jpg" />
+    <Content Include="Content\Joe.jpg" />
+    <Content Include="Content\Me.jpg" />
+    <Content Include="Content\Ray.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -286,14 +316,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Dares.cshtml" />
     <Content Include="Views\Home\DareMap.cshtml" />
-    <Content Include="Views\Home\UserIndex.cshtml" />
-    <Content Include="Views\Home\Image.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
     <Content Include="Views\Home\TermsAndConditions.cshtml" />
+    <Content Include="Views\Home\UserIndex.cshtml" />
+    <Content Include="Views\MovieIndex.cshtml" />
+    <Content Include="Views\Home\Videos.cshtml" />
+    <Content Include="Views\Home\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Message\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -310,6 +343,15 @@
     <EmbeddedResource Include="Migrations\201703171901104_added facebook login.resx">
       <DependentUpon>201703171901104_added facebook login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211823229_Added Facebookbook button.resx">
+      <DependentUpon>201703211823229_Added Facebookbook button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703231355315_Added file uploader.resx">
+      <DependentUpon>201703231355315_Added file uploader.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

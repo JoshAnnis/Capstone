@@ -1,31 +1,60 @@
 ﻿
 @{
+
     ViewBag.Title = "TermsAndConditions";
+
 }
+
+
 
 <h2>TermsAndConditions</h2>
 
+
+
 <script language="javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
 <script language="javascript" type="text/javascript">
+
         function AcceptTermAndcondition() {
 
+
+
             if ($("#chkcondition").is(':checked')) {
+
                 return true;
+
             }
+
             else {
+
                 alert("Please accept term and condition");
+
                 return false;
+
             }
+
         }
+
 </script>
+
 @using (Html.BeginForm("", ""))
+
 {
+
     <div>
+
         @Html.TextArea("Termandcondition", "Term and condition of services.....", new { @height = "135px", @width = "251px", @id = "txtcondition" })
+
     </div>@Html.CheckBox("Condition", false, new { @id = "chkcondition" })<a href="#">Term and condition</a>
+
     <br />
+
     <br />
+
     <input type="submit" value="submit"  onclick="javascript:return AcceptTermAndcondition();" />
+
     <br />
+
     <div style="color:Red">@ViewBag.Message</div>
+
 }

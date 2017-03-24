@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
 using System.Web.Mvc;
-
+using System.IO;
+using Dare.Models;
+using System.Data.Entity.Infrastructure;
 
 namespace Dare.Controllers
 {
@@ -31,7 +36,7 @@ namespace Dare.Controllers
 
         public ActionResult About()
         {
-            
+
             return View();
         }
 
@@ -54,39 +59,42 @@ namespace Dare.Controllers
         }
 
 
- 
-    
-        
-            // GET: TermsAndConditions
-            [HttpPost]
-            public ActionResult TermsAndConditions(int id = 0)
-            {
-                @ViewBag.Message = "Thanks for accepting term and condition.";
-                return View();
-            }
-        
-    
 
-        [HttpPost]
-        public ActionResult Dares(HttpPostedFileBase file)
+        //
+        //GET: TermAndConditions
+        public ActionResult TermsAndConditions()
         {
-            if (file != null && file.ContentLength > 0)
-                try
-                {
-                    string path = Path.Combine(Server.MapPath("~/Images"),
-                    Path.GetFileName(file.FileName));
-                    file.SaveAs(path);
-                    ViewBag.Message = "File uploaded successfully";
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                }
-            else
-            {
-                ViewBag.Message = "You have not specified a file.";
-            }
             return View();
         }
+
+        // POST: TermsAndConditions
+        [HttpPost]
+        public ActionResult TermsAndConditions(int id = 0)
+        {
+            @ViewBag.Message = "Thanks for accepting term and condition.";
+            return View();
+        }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Upload(Videos VS)
+        {
+
+            if (!(VS.File.ContentType == "image/jpeg" || VS.File.ContentType == "image/gif" || VS.File.ContentType == "video/mp4"))
+            {
+                ModelState.AddModelError("CustomError", "File type allowed :jpeg gif and mp4");
+                return View();
+            }
+
+
+            return RedirectToAction("Videos");
+        }
+
+
+        
     }
-}
+    }
+

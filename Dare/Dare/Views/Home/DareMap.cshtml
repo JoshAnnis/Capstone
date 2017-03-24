@@ -28,7 +28,7 @@
         var latlon = "Your Latitude Position is:=" + position.coords.latitude + "," + "Your Longitude Position is:="  +position.coords.longitude;
         alert(latlon)
         var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
-  + latlondata + "&zoom=16&size=400x300&sensor=false";
+  + latlondata + "&zoom=14&size=400x300&sensor=false";
 document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />";
     var marker = new google.maps.Marker({
         position: latlondata,
@@ -59,9 +59,8 @@ document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />"
     </form>
 </body>
 </html>
-
-    
-@*<head>
+   
+<head>
     <style>
         #map {
             height: 400px;
@@ -78,15 +77,29 @@ document.getElementById("mapholder").innerHTML = "<img src='" + img_url + "' />"
           zoom: 20,
           center: uluru
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
+       
+
           map: map
-        });
-      }
+     //var marker0 = new google.maps.Marker({
+            
+        
+          var infowindow = new google.maps.InfoWindow({
+              content: contentString
+          });
+
+          var marker = new google.maps.Marker({
+              position: uluru,
+              map: map,
+              title: 'Uluru (Ayers Rock)'
+          });
+          marker.addListener('click', function() {
+              infowindow.open(map, marker);
+          });
+      };
+      
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyti0b2a2Pz_sc9TKJPr09nEoBOne6Lbo&callback=initMap">
     </script>
+</body>
 
-    @*My google maps api key AIzaSyAyti0b2a2Pz_sc9TKJPr09nEoBOne6Lbo
-</body>*@
